@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Riri OS V16 (Pro)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Wrapper -->
+    <div id="riri-wrapper">
+        
+        <!-- Center Ring -->
+        <div id="core-container">
+            <div class="ring"></div>
+            <div id="ring-text"></div>
+        </div>
+
+        <!-- Chat Log -->
+        <div id="chat-panel" class="hud-panel active">
+            <div class="panel-header"><span>Log</span></div>
+            <div class="panel-content">
+                <div id="chat-history"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Info Panel (Wiki) -->
+        <div id="info-panel" class="hud-panel">
+            <div class="panel-header"><span>Information</span></div>
+            <div class="panel-content" id="info-content"></div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Math Panel -->
+        <div id="math-panel" class="hud-panel">
+            <div class="panel-header"><span>Mathematics</span></div>
+            <div class="panel-content">
+                <div id="math-output"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Calculator Panel -->
+        <div id="calc-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Calculator</span>
+                <span class="close-btn" onclick="closePanel('calc-panel')">X</span>
+            </div>
+            <div class="panel-content" style="display:flex; flex-direction:column;">
+                <div class="calc-screen" id="calc-display"></div>
+                <div class="calc-grid" id="calc-grid"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Clock Panel -->
+        <div id="clock-panel" class="hud-panel">
+            <div class="panel-header"><span>Live Time</span></div>
+            <div class="panel-content">
+                <div class="time-display" id="clock-time"></div>
+                <div class="date-display" id="clock-date"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Timer Panel -->
+        <div id="timer-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Timer</span>
+                <span class="close-btn" onclick="closePanel('timer-panel')">X</span>
+            </div>
+            <div class="panel-content">
+                <div class="timer-display" id="timer-display">00:00</div>
+                <div class="timer-input-row">
+                    <input type="number" id="timer-min" class="util-input" placeholder="Min" value="1">
+                    <input type="number" id="timer-sec" class="util-input" placeholder="Sec" value="0">
+                </div>
+                <div class="timer-controls">
+                    <button class="util-btn" onclick="startTimer()">Start</button>
+                    <button class="util-btn" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Weather Panel -->
+        <div id="weather-panel" class="hud-panel">
+            <div class="panel-header"><span>Weather</span></div>
+            <div class="panel-content" id="weather-content">
+                <div class="weather-main" id="weather-temp">--°C</div>
+                <div class="weather-desc" id="weather-desc">...</div>
+                <div class="weather-detail" id="weather-loc"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Notes Panel -->
+        <div id="notes-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Notes</span>
+                <span class="close-btn" onclick="closePanel('notes-panel')">X</span>
+            </div>
+            <div class="panel-content" style="padding:0">
+                <textarea class="notes-area" id="notes-area" placeholder="Type your notes here..."></textarea>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Dice Panel -->
+        <div id="dice-panel" class="hud-panel">
+            <div class="panel-header"><span>Dice</span></div>
+            <div class="dice-face" id="dice-face">🎲</div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Toss Panel -->
+        <div id="toss-panel" class="hud-panel">
+            <div class="panel-header"><span>Toss</span></div>
+            <div style="text-align:center;">
+                <div class="coin-icon" id="coin-icon">🪙</div>
+                <div class="coin-result" id="coin-result">Result</div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Music Panel -->
+        <div id="music-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Music</span>
+                <span class="close-btn" onclick="closePanel('music-panel')">X</span>
+            </div>
+            <div class="panel-content">
+                <div class="player-controls">
+                    <div class="track-info">Lofi Chill (Demo)</div>
+                    <audio id="audio-player" src="https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" loop></audio>
+                    <div class="play-btn" id="play-btn" onclick="toggleMusic()">▶</div>
+                    <input type="range" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)" style="width:100%">
+                </div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- Stopwatch Panel -->
+        <div id="stopwatch-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Stopwatch</span>
+                <span class="close-btn" onclick="closePanel('stopwatch-panel')">X</span>
+            </div>
+            <div class="panel-content">
+                <div class="sw-display" id="sw-display">00:00:00</div>
+                <div class="sw-controls">
+                    <button class="util-btn" onclick="startStopwatch()" id="sw-start">Start</button>
+                    <button class="util-btn" onclick="resetStopwatch()">Reset</button>
+                </div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- System Info Panel -->
+        <div id="system-panel" class="hud-panel">
+            <div class="panel-header"><span>System</span></div>
+            <div class="panel-content" id="sys-content">
+                <!-- Populated by JS -->
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- NEWS PANEL -->
+        <div id="news-panel" class="hud-panel">
+            <div class="panel-header"><span>News</span></div>
+            <div class="panel-content" id="news-content">
+                <div style="text-align:center; color:#888;">Loading...</div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- COUNTRIES PANEL -->
+        <div id="countries-panel" class="hud-panel">
+            <div class="panel-header"><span>Countries</span></div>
+            <div class="panel-content" id="countries-content">
+                <div style="text-align:center; color:#888;">Ask "Countries [Name]"</div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+        <!-- ADVICE PANEL -->
+        <div id="advice-panel" class="hud-panel">
+            <div class="panel-header"><span>Advice</span></div>
+            <div class="panel-content">
+                <div id="advice-text">Click button...</div>
+                <button class="util-btn" style="width:100%" onclick="fetchAdvice()">Get Advice</button>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
+    </div>
+
+    <!-- Input -->
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Ask Riri..." autocomplete="off">
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+  </html>
