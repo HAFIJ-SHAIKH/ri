@@ -10,7 +10,8 @@ const customReplies = {
     "what can you do": ["I can calculate, search info, play music, set timers, and more.", "I calculate math."],
     "joke": ["Tell me a joke.", "I love funny ones.", "Why did the chicken cross the road?"],
     "tell me a joke": ["Why did the computer go to the doctor? Because it had a virus!"]
-    
+}
+    {
     // --- IDENTITY & GREETINGS (Expanded) ---
     "hi": ["Hello.", "Hey.", "Greetings.", "System online.", "Hi there!", "Hey there!", "Yo.", "Sup.", "How are you?", "What's up?", "Glad to see you.", "Welcome back."],
     "hello": ["Hello.", "Hey.", "Greetings.", "System online.", "Hi there!", "How are you?", "What's up?", "Glad to see you.", "Welcome back."],
