@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Riri OS V16 (Pro)</title>
+    <title>Riri OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -195,6 +195,25 @@
             <div class="resize-handle"></div>
         </div>
 
+        <!-- CUSTOM PANEL (NEW) -->
+        <div id="custom-panel" class="hud-panel">
+            <div class="panel-header">
+                <span>Custom AI Brain</span>
+                <span class="close-btn" onclick="closePanel('custom-panel')">X</span>
+            </div>
+            <div class="panel-content">
+                <div style="display:flex; gap:10px; margin-bottom:10px;">
+                    <button class="util-btn" onclick="setDefaultTemplate()">Load Template</button>
+                    <button class="util-btn" onclick="clearCustomData()">Clear All</button>
+                </div>
+                <!-- JSON Editor -->
+                <textarea id="json-editor" class="json-input" placeholder='{"what\'s up": ["I\'m coding."]}'></textarea>
+                <button class="util-btn" style="width:100%" onclick="saveCustomData()">Save to Brain</button>
+                <div id="save-status" style="text-align:center; font-size:0.8rem; min-height:20px;"></div>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+
     </div>
 
     <!-- Input -->
@@ -203,8 +222,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="config.js"></script>
     <script src="script.js"></script>
-
 </body>
-  </html>
+    </html>
