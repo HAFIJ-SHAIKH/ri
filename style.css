@@ -251,6 +251,12 @@ body {
 #advice-panel { width: 300px; height: 200px; transform: translate(-180px, -160px); border-color: rgba(0, 255, 200, 0.4); }
 #advice-text { text-align: center; font-style: italic; font-size: 1.1rem; color: #00ffc8; margin-bottom: 20px; min-height: 60px; display: flex; align-items: center; justify-content: center; }
 
+/* CUSTOM PANEL (NEW) */
+#custom-panel { width: 340px; height: 350px; transform: translate(-180px, -180px); border-color: rgba(255, 0, 255, 0.5); }
+#json-editor {
+    width: 100%; height: 180px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.3); color: #0f0; font-family: monospace; font-size: 0.8rem; padding: 10px; outline: none; resize: none;
+}
+
 /* Image Panels */
 .image-panel { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.3); }
 .img-full { width: 100%; height: 100%; object-fit: contain; }
