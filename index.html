@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Riri OS</title>
+    <title>Riri OS V19 (External Data)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -203,13 +203,12 @@
             </div>
             <div class="panel-content">
                 <div style="display:flex; gap:10px; margin-bottom:10px;">
-                    <button class="util-btn" onclick="setDefaultTemplate()">Load Template</button>
-                    <button class="util-btn" onclick="clearCustomData()">Clear All</button>
+                    <button class="util-btn" onclick="alert('Load this file directly into custom-replies.js')">Refresh</button>
+                    <button class="util-btn" onclick="alert('Reload the page to fetch the latest custom-replies.js')">Reload Page</button>
                 </div>
-                <!-- JSON Editor -->
-                <textarea id="json-editor" class="json-input" placeholder='{"what\'s up": ["I\'m coding."]}'></textarea>
-                <button class="util-btn" style="width:100%" onclick="saveCustomData()">Save to Brain</button>
-                <div id="save-status" style="text-align:center; font-size:0.8rem; min-height:20px;"></div>
+                <div id="save-status" style="text-align:center; color:#fff; margin-bottom:10px;">
+                    Responses loaded from external file.
+                </div>
             </div>
             <div class="resize-handle"></div>
         </div>
@@ -222,6 +221,9 @@
     </div>
 
     <!-- Scripts -->
+    <!-- IMPORTANT: We load custom-replies.js first so the data is available before script.js runs -->
+    <script src="custom-replies.js"></script>
     <script src="script.js"></script>
+
 </body>
-    </html>
+</html>
